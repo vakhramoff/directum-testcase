@@ -86,11 +86,12 @@ try {
 
         });
 
-        phone1.makeCallById(1).then(res => {
-            console.log(
-                `Phone ${phone1.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phone1.phoneBook['1'].phoneNumber} using phone book`
-            );
-        })
+        phone1.makeCallById(1)
+            .then(res => {
+                console.log(
+                    `Phone ${phone1.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phone1.phoneBook['1'].phoneNumber} using phone book`
+                );
+            })
             .catch(error => {
                 console.log(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone1.phoneBook['1'].phoneNumber} using phone book`)
             });
