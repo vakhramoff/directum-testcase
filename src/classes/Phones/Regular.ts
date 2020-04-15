@@ -4,6 +4,9 @@ import { PhoneNumber } from "../../types/PhoneNumber";
 import { BaseStation } from "../../interfaces/BaseStation";
 import { Contact } from "../../interfaces/Contact";
 
+/**
+ * Class which implements a Regular Phone
+ */
 export class RegularPhone implements CellPhone {
     readonly IMEI: string;
 

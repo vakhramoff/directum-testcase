@@ -2,6 +2,9 @@ import { BaseStation } from "../../interfaces/BaseStation";
 import { CellPhone } from "../../interfaces/CellPhone";
 import { PhoneNumber } from "../../types/PhoneNumber";
 
+/**
+ * Class which implements a Regular Base Station
+ */
 export class RegularBaseStation implements BaseStation{
     private _phonesList: CellPhone[];
     private _name: string;

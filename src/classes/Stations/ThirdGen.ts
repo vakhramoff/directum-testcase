@@ -2,6 +2,9 @@ import { RegularBaseStation } from "./Regular";
 import { CellPhone } from "../../interfaces/CellPhone";
 import { ThirdGenPhone } from "../Phones/ThirdGen";
 
+/**
+ * Class which implements a 3G Base Station
+ */
 export class ThirdGenBaseStation extends RegularBaseStation {
     private _thirdGenPhones: ThirdGenPhone[];
 
@@ -12,6 +15,13 @@ export class ThirdGenBaseStation extends RegularBaseStation {
     }
 
     registerPhone(phone: CellPhone): Promise<boolean> {
+        /*
+            Нарушил O/SOLID, т.к. возникло недопонимание.
+            По заданию станция должна регистрировать телефоны, а не телефон регистрироваться на станции.
+            Чтобы решить эту проблему, нужно сделать так,
+                чтобы именно телефон особенным образом регистрировался на 3G-станции.
+            Немного смутил этот момент.
+         */
         if (phone instanceof ThirdGenPhone) {
             this._thirdGenPhones.push(phone);
         }
