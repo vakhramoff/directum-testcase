@@ -43,7 +43,8 @@ try {
     const station1 = new RegularBaseStation('Regular Station 1');
     const station2 = new ThirdGenBaseStation('3G Station 1');
 
-    let registeringTestCases: {phone: CellPhone, station: BaseStation}[] = [];
+    /* Some registration tests */
+    const registeringTestCases: {phone: CellPhone, station: BaseStation}[] = [];
 
     registeringTestCases.push({phone: phone1, station: station2});
     registeringTestCases.push({phone: phone2, station: station2});
@@ -73,27 +74,28 @@ try {
         callingTestCases.forEach(testCase => {
             const {station, phone1, phone2} = testCase;
 
-            phone1.makeCallByPhoneNumber(phone2.simCardNumber)
+            phoneFrom.makeCallByPhoneNumber(phoneTo.simCardNumber)
                 .then(res => {
                     console.log(
-                        `Phone ${phone1.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phone2.simCardNumber}`
+                        `Phone ${phoneFrom.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phoneTo.simCardNumber}`
                     );
                 })
                 .catch(error => {
-                    console.log(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone2.simCardNumber}`)
+                    console.log(`Error happened while trying to make a phone call from ${phoneFrom.simCardNumber} to ${phoneTo.simCardNumber}`)
                 });
 
 
         });
 
-        phone1.makeCallById(1)
+        const testRecipientId = 1;
+        phone1.makeCallById(testRecipientId)
             .then(res => {
                 console.log(
-                    `Phone ${phone1.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phone1.phoneBook['1'].phoneNumber} using phone book`
+                    `Phone ${phone1.simCardNumber} ${res ? 'successfully' : 'unsuccessfully' } made call to ${phone1.phoneBook[testRecipientId].phoneNumber} using phone book`
                 );
             })
             .catch(error => {
-                console.log(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone1.phoneBook['1'].phoneNumber} using phone book`)
+                console.log(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone1.phoneBook[testRecipientId].phoneNumber} using phone book`)
             });
     }, 500);
 } catch (e) {
