@@ -65,14 +65,15 @@ try {
 
 
     setTimeout(() => {
-        let callingTestCases: {phone1: CellPhone, phone2: CellPhone, station: BaseStation}[] = [];
+        /* Some calling tests */
+        const callingTestCases: {phoneFrom: CellPhone, phoneTo: CellPhone}[] = [];
 
-        callingTestCases.push({phone1: phone1, phone2: phone2, station: station2});
-        callingTestCases.push({phone1: phone1, phone2: phone3, station: station2});
-        callingTestCases.push({phone1: phone1, phone2: phone2, station: station1});
+        callingTestCases.push({phoneFrom: phone1, phoneTo: phone2});
+        callingTestCases.push({phoneFrom: phone1, phoneTo: phone3});
+        callingTestCases.push({phoneFrom: phone1, phoneTo: phone2});
 
         callingTestCases.forEach(testCase => {
-            const {station, phone1, phone2} = testCase;
+            const {phoneFrom, phoneTo} = testCase;
 
             phoneFrom.makeCallByPhoneNumber(phoneTo.simCardNumber)
                 .then(res => {
