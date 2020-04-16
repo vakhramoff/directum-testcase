@@ -82,7 +82,7 @@ try {
                     );
                 })
                 .catch(error => {
-                    console.log(`Error happened while trying to make a phone call from ${phoneFrom.simCardNumber} to ${phoneTo.simCardNumber}`)
+                    console.warn(`Error happened while trying to make a phone call from ${phoneFrom.simCardNumber} to ${phoneTo.simCardNumber}`)
                 });
 
 
@@ -96,7 +96,7 @@ try {
                 );
             })
             .catch(error => {
-                console.log(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone1.phoneBook[testRecipientId].phoneNumber} using phone book`)
+                console.warn(`Error happened while trying to make a phone call from ${phone1.simCardNumber} to ${phone1.phoneBook[testRecipientId].phoneNumber} using phone book`)
             });
     }, 500);
 } catch (e) {
